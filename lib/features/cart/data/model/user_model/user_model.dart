@@ -19,6 +19,8 @@ class UserModel extends HiveObject with EquatableMixin {
   final Timestamp? timeOfOrder;
   @HiveField(4)
   final List<OrderModel>? orders;
+  @HiveField(5)
+  final String? note;
 
   UserModel({
     this.id,
@@ -27,6 +29,7 @@ class UserModel extends HiveObject with EquatableMixin {
     this.userAdress,
     this.timeOfOrder,
     this.orders,
+    this.note,
   });
 
   factory UserModel.fromFirestore(Map<String, dynamic> json) => UserModel(
@@ -38,6 +41,7 @@ class UserModel extends HiveObject with EquatableMixin {
         orders: (json['orders'] as List<dynamic>?)
             ?.map((e) => OrderModel.fromFirestore(e as Map<String, dynamic>))
             .toList(),
+        note: json['note'] as String?,
       );
 
   Map<String, dynamic> toFirestore() => {
@@ -47,6 +51,7 @@ class UserModel extends HiveObject with EquatableMixin {
         'userAdress': userAdress,
         'timeOfOrder': timeOfOrder,
         'orders': orders?.map((e) => e.toFirestore()).toList(),
+        'note': note,
       };
 
   @override
@@ -56,7 +61,7 @@ class UserModel extends HiveObject with EquatableMixin {
     return orders?.fold<double>(
           0.0,
           (previousValue, order) =>
-              previousValue + (order.price ?? 0.0) * (order.quantity ?? 0),
+              previousValue + (order.price ?? 0.0) * (order.quantity ?? 1),
         ) ??
         0.0;
   }

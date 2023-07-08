@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:seller/core/utils/colors.dart';
 import 'package:seller/core/utils/size.dart';
 import 'package:seller/core/utils/texts.dart';
+import 'package:seller/core/widgets/custom_divider.dart';
 import 'package:seller/features/cart/data/model/user_model/user_model.dart';
 
 import '../manger/pre_order_cubit/pre_order_cubit.dart';
@@ -104,6 +105,13 @@ class PrepareOrderItems extends StatelessWidget {
                   text: "اجمالي الطلب ( ${user.totalPrice.round()} ) جنيه"),
               SubTitleText(text: user.userphone!),
               SubTitleText(text: user.userAdress!),
+              SizedBox(
+                  child: user.note == null
+                      ? null
+                      : SubTitleText(text: user.note!)),
+              CustomDivider(
+                  thickness: CustomSize().widthSize(context, .01),
+                  color: AppColors.blackColor),
               ListView.builder(
                 itemCount: user.orders?.length ?? 0,
                 shrinkWrap: true,
@@ -111,14 +119,27 @@ class PrepareOrderItems extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final orders = user.orders![index];
                   return Wrap(
-                    children: [
-                      SubTitleText(text: "عدد ( ${orders.quantity!} ) "),
-                      SubTitleText(text: "${orders.pName!} بسعر "),
-                      SubTitleText(text: "( ${(orders.price)!.round()} ) جنيه"),
-                      SubTitleText(
-                          text:
-                              " باجمالي ( ${orders.getTotalPrice().round()} ) جنيه"),
-                    ],
+                    children: orders.quantity == null
+                        ? [
+                            SubTitleText(
+                                text: "عدد ( ${orders.quantity ?? "1"} ) "),
+                            SubTitleText(text: "اضافة ${orders.pName!}بسعر "),
+                            SubTitleText(
+                                text: "( ${(orders.price)!.round()} ) جنيه"),
+                            SubTitleText(
+                                text:
+                                    " باجمالي ( ${orders.getTotalPrice().round()} ) جنيه"),
+                          ]
+                        : [
+                            SubTitleText(
+                                text: "عدد ( ${orders.quantity ?? "1"} ) "),
+                            SubTitleText(text: "${orders.pName!}بسعر "),
+                            SubTitleText(
+                                text: "( ${(orders.price)!.round()} ) جنيه"),
+                            SubTitleText(
+                                text:
+                                    " باجمالي ( ${orders.getTotalPrice().round()} ) جنيه"),
+                          ],
                   );
                 },
               )

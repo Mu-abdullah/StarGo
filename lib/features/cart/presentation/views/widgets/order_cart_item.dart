@@ -26,7 +26,8 @@ class OrderCartItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).pushReplacement(AppRouter.showOrderBottomScreen, extra: user);
+        GoRouter.of(context)
+            .pushReplacement(AppRouter.showOrderBottomScreen, extra: user);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -64,6 +65,14 @@ class OrderCartItem extends StatelessWidget {
                   TitleTexts(
                       text: "الطلبات : ${user.orders!.length.toString()}",
                       titleColor: AppColors.whiteColor),
+                  Padding(
+                    padding: EdgeInsets.zero,
+                    child: user.note!.isEmpty
+                        ? null
+                        : TitleTexts(
+                            text: "ملاحظات : ${user.note!}",
+                            titleColor: AppColors.whiteColor),
+                  ),
                   TitleTexts(
                       text: "الاجمالي : ${(user.totalPrice).round()} جنيه",
                       titleColor: AppColors.whiteColor),

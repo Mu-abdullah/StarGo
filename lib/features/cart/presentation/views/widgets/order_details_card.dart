@@ -17,38 +17,46 @@ class OrderDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.separated(
+      child: ListView.builder(
         itemCount: user.orders?.length ?? 0,
         itemBuilder: (context, index) {
           final order = user.orders![index];
 
-          return Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SubTitleText(text: "عدد ( ${order.quantity} )"),
-                  TitleTexts(text: "${order.pName}"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TitleTexts(
-                      text: "الاجمالي ${(order.getTotalPrice()).round()} جنيه"),
-                  const SizedBox(width: 20),
-                  SubTitleText(text: "بسعر ${order.price}"),
-                ],
-              ),
-              CustomDivider(
-                thickness: CustomSize().widthSize(context, .01),
-                color: AppColors.blackColor,
-              )
-            ],
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SubTitleText(text: "بسعر ${order.price}"),
+                    TitleTexts(
+                        text: order.quantity != null
+                            ? "${order.pName}"
+                            : "اضافة ${order.pName}"),
+                  ],
+                ),
+                SizedBox(
+                  child: order.quantity == null
+                      ? null
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TitleTexts(
+                                text:
+                                    "الاجمالي ${(order.getTotalPrice()).round()} جنيه"),
+                            const SizedBox(width: 20),
+                            SubTitleText(text: "عدد ( ${order.quantity} )"),
+                          ],
+                        ),
+                ),
+                CustomDivider(
+                  thickness: CustomSize().widthSize(context, .01),
+                  color: AppColors.blackColor,
+                )
+              ],
+            ),
           );
-        },
-        separatorBuilder: (context, index) {
-          return const SizedBox(height: 5);
         },
       ),
     );

@@ -68,8 +68,8 @@ class OrderModel extends Equatable {
   }
 
   double getTotalPrice() {
-    if (quantity != null && price != null) {
-      return quantity! * price!;
+    if (price != null) {
+      return (quantity ?? 1) * price!;
     } else {
       return 0.0;
     }
