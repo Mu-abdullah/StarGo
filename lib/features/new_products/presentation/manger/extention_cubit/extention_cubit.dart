@@ -3,18 +3,33 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constanent.dart';
-import '../../../data/model/product_model.dart';
+import '../../../data/model/extention_model.dart';
 
-part 'admin_screen_state.dart';
+part 'extention_state.dart';
 
-class AdminScreenCubit extends Cubit<AdminScreenState> {
-  AdminScreenCubit() : super(AdminScreenInitial());
-  static AdminScreenCubit get(context) => BlocProvider.of(context);
-final CollectionReference collection =
-        FirebaseFirestore.instance.collection(Constant.productKey);
+class ExtentionCubit extends Cubit<ExtentionState> {
+  ExtentionCubit() : super(ExtentionInitial());
+
+  static ExtentionCubit get(context) => BlocProvider.of(context);
+
+  final CollectionReference collection =
+      FirebaseFirestore.instance.collection(Constant.extentionsKey);
+  void sendExtention(ExtentionModel extention) {
+    try {
+      emit(LoadingSendData());
+
+      final docRef = collection.doc(extention.id);
+      docRef.set(extention.toFirestore());
+
+      emit(SuccessSendData());
+    } catch (e) {
+      emit(FaulierSendData(e.toString()));
+    }
+  }
+
+
   void filterCategoty(
       { required String category}) {
-    
     emit(Loading());
     try {
       collection
@@ -23,7 +38,7 @@ final CollectionReference collection =
           .listen((querySnapshot) {
         final documents = querySnapshot.docs.map((doc) {
           final data = doc.data() as Map<String, dynamic>;
-          return ProductModel.fromFirestore(data);
+          return ExtentionModel.fromFirestore(data);
         }).toList();
         emit(Success(documents));
       });
@@ -33,14 +48,14 @@ final CollectionReference collection =
   }
 
   void deleteDocument({
-    required collectionName,
+   
     required String documentId,
     required String category,
   }) {
     try {
       emit(TryToDeleted());
       FirebaseFirestore.instance
-          .collection(collectionName)
+          .collection(Constant.extentionsKey)
           .doc(documentId)
           .delete();
       emit(DeletedSuccessfully());

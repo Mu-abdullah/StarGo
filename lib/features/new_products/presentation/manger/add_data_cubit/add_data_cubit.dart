@@ -45,6 +45,18 @@ class AddDataCubit extends Cubit<AddDataState> {
             text: "كريب",
             fontFamily: AssetDate.messiriFont,
           )),
+      DropdownMenuItem(
+          value: Constant.cripeCategory,
+          child: const SubTitleText(
+            text: "كريب",
+            fontFamily: AssetDate.messiriFont,
+          )),
+      DropdownMenuItem(
+          value: Constant.zalapiaCategory,
+          child: const SubTitleText(
+            text: "زلابيا",
+            fontFamily: AssetDate.messiriFont,
+          )),
     ];
     return menuItems;
   }

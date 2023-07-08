@@ -22,8 +22,9 @@ class CategortScreen extends StatefulWidget {
 class _CategortScreenState extends State<CategortScreen> {
   @override
   void initState() {
-    BlocProvider.of<AdminScreenCubit>(context)
-        .filterCategoty(category: widget.categoryName);
+    BlocProvider.of<AdminScreenCubit>(context).filterCategoty(
+      category: widget.categoryName,
+    );
     super.initState();
   }
 
@@ -58,6 +59,6 @@ class _CategortScreenState extends State<CategortScreen> {
         titleColor: AppColors.whiteColor,
         fontSize: 28,
         text:
-            "اصناف ال${widget.categoryName == Constant.pastaCategory ? "مكرونات" : widget.categoryName == Constant.cripeCategory ? "كريب" : widget.categoryName == Constant.pizzaCategory ? "بيتزا" : widget.categoryName == Constant.saltyPanCakeCategory ? "فطير الحادق" : widget.categoryName == Constant.sweetPanCakeCategory ? "فطير الحلو" : ""}");
+            "اصناف ال${widget.categoryName == Constant.pastaCategory ? "مكرونات" : widget.categoryName == Constant.cripeCategory ? "كريب" : widget.categoryName == Constant.zalapiaCategory ? "زلابيا" : widget.categoryName == Constant.pizzaCategory ? "بيتزا" : widget.categoryName == Constant.saltyPanCakeCategory ? "فطير الحادق" : widget.categoryName == Constant.sweetPanCakeCategory ? "فطير الحلو" : widget.categoryName == Constant.extentionsKey ? "اضافات" : ""}");
   }
 }

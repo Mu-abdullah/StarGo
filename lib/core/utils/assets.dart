@@ -1,8 +1,7 @@
 class AssetDate {
   static const logo = 'assets/images/logo.png';
-  static const avatar = 'assets/images/avatar.png';
   static const appName = 'Pizza Star Go';
-  static const appSummary = 'Handcraft';
+
 
   static const pizzaBanner = 'assets/images/pizza.png';
   static const pastaBanner = 'assets/images/pasta.png';

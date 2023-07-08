@@ -3,19 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:seller/core/utils/colors.dart';
 
+import '../../../../../core/utils/constanent.dart';
 import '../../../../../core/utils/texts.dart';
+import '../../../../new_products/data/model/extention_model.dart';
 import '../../../data/model/product_model.dart';
 import '../../manger/admin_screen_cubit/admin_screen_cubit.dart';
 import 'admin_bottom_sheet_view.dart';
+import 'extention_model_sheet.dart';
 
 class AdminViewItem extends StatelessWidget {
-  const AdminViewItem({
+  AdminViewItem({
     super.key,
     required this.products,
   });
 
   final ProductModel products;
 
+  final ExtentionModel extentionModel = ExtentionModel();
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -55,6 +59,10 @@ class AdminViewItem extends StatelessWidget {
                         onTap: () {
                           BlocProvider.of<AdminScreenCubit>(context)
                               .deleteDocument(
+                            collectionName:
+                                products.category == Constant.extentionsKey
+                                    ? Constant.extentionsKey
+                                    : Constant.productKey,
                             documentId: products.id!,
                             category: products.category!,
                           );
@@ -70,6 +78,7 @@ class AdminViewItem extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       TitleTexts(text: products.name!),
+                      const SizedBox(height: 5),
                     ],
                   ),
                 ),

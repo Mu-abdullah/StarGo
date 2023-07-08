@@ -50,6 +50,12 @@ class EditScreenCubit extends Cubit<EditScreenState> {
             text: "كريب",
             fontFamily: AssetDate.messiriFont,
           )),
+      DropdownMenuItem(
+          value: Constant.zalapiaCategory,
+          child: const SubTitleText(
+            text: "زلابيا",
+            fontFamily: AssetDate.messiriFont,
+          )),
     ];
     return menuItems;
   }
@@ -62,7 +68,7 @@ class EditScreenCubit extends Cubit<EditScreenState> {
   final CollectionReference productsRef =
       FirebaseFirestore.instance.collection(Constant.productKey);
 
-  Future<void> updateProductField(context,ProductModel product) async {
+  Future<void> updateProductField(context, ProductModel product) async {
     try {
       emit(LoadindEditData());
       DocumentReference docRef = FirebaseFirestore.instance

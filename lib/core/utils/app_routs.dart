@@ -7,9 +7,10 @@ import 'package:seller/features/cart/data/model/user_model/user_model.dart';
 import 'package:seller/features/cart/presentation/views/widgets/loading_delete.dart';
 import 'package:seller/features/login/presentation/views/login_screen.dart';
 import 'package:seller/features/new_products/presentation/views/new_products_screen.dart';
+import 'package:seller/features/new_products/presentation/views/widgets/extentions.dart';
 import 'package:seller/features/new_products/presentation/views/widgets/loading_screen.dart';
 import '../../features/admin/presentation/views/edite_screen.dart';
-import '../../features/cart/presentation/manger/order_cubit/order_screen_cubit.dart';
+import '../../features/admin/presentation/views/widgets/extention_screen.dart';
 import '../../features/cart/presentation/views/order_screen.dart';
 import '../../features/cart/presentation/views/pre_pare.dart';
 import '../../features/cart/presentation/views/widgets/order_bottom_sheet.dart';
@@ -34,13 +35,23 @@ abstract class AppRouter {
   static const prepareOrderScreen = '/prepareOrderScreen';
   static const loadingDeleteScreen = '/loadingDeleteScreen';
   static const showOrderBottomScreen = '/showOrderBottomScreen';
+  static const extentionsScreen = '/extentionsScreen';
+  static const showExtentionsScreen = '/showExtentionsScreen';
 
   static final router = GoRouter(
-    initialLocation: /*homeScreen */ initialRoute,
+    initialLocation: initialRoute /*initialRoute */,
     routes: [
       GoRoute(
         path: homeScreen,
         builder: (context, state) => const AdminHomeScreen(),
+      ),
+      GoRoute(
+        path: extentionsScreen,
+        builder: (context, state) =>const ExtentionsScreen(),
+      ),
+      GoRoute(
+        path: showExtentionsScreen,
+        builder: (context, state) =>const ShowExtintionScreen(),
       ),
       GoRoute(
         path: showOrderBottomScreen,

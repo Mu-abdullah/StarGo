@@ -18,13 +18,7 @@ class AdminGridViewItems extends StatefulWidget {
   State<AdminGridViewItems> createState() => _AdminGridViewItemsState();
 }
 
-class _AdminGridViewItemsState extends State<AdminGridViewItems> {
-  @override
-  // void initState() {
-  //   BlocProvider.of<AdminScreenCubit>(context).fetchDocuments();
-  //   super.initState();
-  // }
-
+class _AdminGridViewItemsState extends State<AdminGridViewItems> {      
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AdminScreenCubit, AdminScreenState>(
@@ -60,7 +54,7 @@ class _AdminGridViewItemsState extends State<AdminGridViewItems> {
                     padding: const EdgeInsets.all(10.0),
                     children: List.generate(state.allProducts.length, (index) {
                       final products = state.allProducts[index];
-                      return AdminViewItem(products: products);
+                      return  AdminViewItem(products: products);
                     }),
                   ),
           );
