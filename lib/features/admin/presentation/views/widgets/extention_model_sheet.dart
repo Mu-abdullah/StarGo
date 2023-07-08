@@ -53,7 +53,7 @@ class ExtentionDetailsModelSheet extends StatelessWidget {
                     fontSize: 36,
                   ),
                   SubTitleText(
-                    text: "${extention.price} جنيه",
+                    text: "${extention.priceL} جنيه",
                     fontFamily: AssetDate.messiriFont,
                     fontSize: 28,
                     subTitleColor: AppColors.blackColor,

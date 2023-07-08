@@ -115,7 +115,7 @@ class ExtentionListViewItem extends StatelessWidget {
     return ListTile(
       title: TitleTexts(text: "${extenion.name}"),
       subtitle: SubTitleText(
-        text: "${extenion.price} جنيه",
+        text: "${extenion.priceL} جنيه",
         subTitleColor: AppColors.blackColor,
       ),
       trailing: TextButton(
