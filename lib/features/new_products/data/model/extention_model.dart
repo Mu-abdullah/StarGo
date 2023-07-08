@@ -1,16 +1,16 @@
 class ExtentionModel {
   String? id;
   String? name;
-  String? price;
+  String? priceL;
   String? category;
 
-  ExtentionModel({this.name, this.id, this.price, this.category});
+  ExtentionModel({this.name, this.id, this.priceL, this.category});
 
   factory ExtentionModel.fromFirestore(Map<String, dynamic> data) {
     return ExtentionModel(
       id: data['id'],
       name: data['name'],
-      price: data['price'],
+      priceL: data['priceL'],
       category: data['category'],
     );
   }
@@ -19,7 +19,7 @@ class ExtentionModel {
     return {
       if (name != null) "name": name,
       if (id != null) "id": id,
-      if (price != null) "price": price,
+      if (priceL != null) "priceL": priceL,
       if (category != null) "category": category,
     };
   }
