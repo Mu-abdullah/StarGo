@@ -37,7 +37,7 @@ class PreOrderCubit extends Cubit<PreOrderState> {
               .delete();
           emit(DeletedSuccessfully());
         } catch (e) {
-          print('Error deleting document: $e');
+          emit(DeletedFailed(e.toString()));
         }
       },
     );

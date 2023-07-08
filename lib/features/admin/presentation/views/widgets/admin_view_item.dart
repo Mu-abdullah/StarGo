@@ -9,7 +9,6 @@ import '../../../../new_products/data/model/extention_model.dart';
 import '../../../data/model/product_model.dart';
 import '../../manger/admin_screen_cubit/admin_screen_cubit.dart';
 import 'admin_bottom_sheet_view.dart';
-import 'extention_model_sheet.dart';
 
 class AdminViewItem extends StatelessWidget {
   AdminViewItem({
