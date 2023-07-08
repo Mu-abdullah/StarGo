@@ -118,7 +118,7 @@ class _ExtentionsScreenState extends State<ExtentionsScreen> {
                             final extention = ExtentionModel(
                               id: generateDocumentId(),
                               name: name.text,
-                              price: price.text,
+                              priceL: price.text,
                               category: Constant.extentionsKey,
                             );
                             cubit.sendExtention(extention);
