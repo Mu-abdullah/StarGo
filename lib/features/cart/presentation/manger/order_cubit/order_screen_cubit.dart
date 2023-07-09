@@ -11,9 +11,9 @@ class OrderScreenCubit extends Cubit<OrderScreenState> {
   OrderScreenCubit() : super(OrderScreenInitial());
   static OrderScreenCubit get(context) => BlocProvider.of(context);
 
-  final CollectionReference collection =
-      FirebaseFirestore.instance.collection(Constant.ordersKey);
   void fetchDocuments() {
+    final CollectionReference collection =
+        FirebaseFirestore.instance.collection(Constant.ordersKey);
     emit(Loading());
     try {
       collection.snapshots().listen((querySnapshot) {

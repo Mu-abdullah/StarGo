@@ -67,7 +67,7 @@ class OrderCartItem extends StatelessWidget {
                       titleColor: AppColors.whiteColor),
                   Padding(
                     padding: EdgeInsets.zero,
-                    child: user.note!.isEmpty
+                    child: user.note!.length == 0
                         ? null
                         : TitleTexts(
                             text: "ملاحظات : ${user.note!}",
