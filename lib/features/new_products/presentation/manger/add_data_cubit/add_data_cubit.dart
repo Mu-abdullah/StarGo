@@ -46,12 +46,6 @@ class AddDataCubit extends Cubit<AddDataState> {
             fontFamily: AssetDate.messiriFont,
           )),
       DropdownMenuItem(
-          value: Constant.cripeCategory,
-          child: const SubTitleText(
-            text: "كريب",
-            fontFamily: AssetDate.messiriFont,
-          )),
-      DropdownMenuItem(
           value: Constant.zalapiaCategory,
           child: const SubTitleText(
             text: "زلابيا",
@@ -80,6 +74,4 @@ class AddDataCubit extends Cubit<AddDataState> {
       emit(FaulierSendDAta(e.toString()));
     }
   }
-
-
 }

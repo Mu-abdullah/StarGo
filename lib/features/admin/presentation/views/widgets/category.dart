@@ -35,16 +35,15 @@ class _CategortScreenState extends State<CategortScreen> {
         body: Column(
           children: [
             Container(
-                height: CustomSize().heightSize(context, .08),
                 width: CustomSize().widthSize(context, 1),
                 decoration: const BoxDecoration(
-                  color: AppColors.blueColor,
+                  color: AppColors.blueBlackColor,
                   borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(25),
-                      bottomRight: Radius.circular(25)),
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(16),
                   child: customName(),
                 )),
             const AdminGridViewItems()

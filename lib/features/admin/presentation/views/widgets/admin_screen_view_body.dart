@@ -33,13 +33,11 @@ class AdminScreenViewBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       TitleTexts(
-                        fontSize: 36,
                         text: AssetDate.appName,
                         fontFamily: AssetDate.righteousFont,
                         titleColor: AppColors.primaryColor,
                       ),
                       TitleTexts(
-                        fontSize: 36,
                         text: "قائمة الاصناف",
                         titleColor: AppColors.primaryColor,
                       ),
@@ -47,7 +45,7 @@ class AdminScreenViewBody extends StatelessWidget {
                   ),
                   Image.asset(
                     AssetDate.logo,
-                    height: CustomSize().heightSize(context, .15),
+                    height: CustomSize().heightSize(context, .1),
                   )
                 ],
               ),

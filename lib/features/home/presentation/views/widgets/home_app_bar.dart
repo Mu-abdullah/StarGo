@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
@@ -29,7 +28,7 @@ class HomeAppBar extends StatelessWidget {
           children: const [
             TitleTexts(
               text: "اهلا وسهلا",
-              fontSize: 48,
+              fontSize: 36,
               titleColor: AppColors.whiteColor,
             ),
             Align(
@@ -38,7 +37,7 @@ class HomeAppBar extends StatelessWidget {
                 text: "Pizza Star Go",
                 titleColor: AppColors.primaryColor,
                 fontFamily: AssetDate.righteousFont,
-                fontSize: 48,
+                fontSize: 36,
               ),
             ),
             SizedBox(height: 10),

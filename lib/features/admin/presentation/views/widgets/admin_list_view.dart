@@ -18,7 +18,7 @@ class AdminGridViewItems extends StatefulWidget {
   State<AdminGridViewItems> createState() => _AdminGridViewItemsState();
 }
 
-class _AdminGridViewItemsState extends State<AdminGridViewItems> {      
+class _AdminGridViewItemsState extends State<AdminGridViewItems> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AdminScreenCubit, AdminScreenState>(
@@ -46,16 +46,13 @@ class _AdminGridViewItemsState extends State<AdminGridViewItems> {
                       ],
                     ),
                   )
-                : GridView.count(
+                : ListView.builder(
+                    itemCount: state.allProducts.length,
                     physics: const BouncingScrollPhysics(),
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 5, // spacing between rows
-                    crossAxisSpacing: 5, // spacing between columns
-                    padding: const EdgeInsets.all(10.0),
-                    children: List.generate(state.allProducts.length, (index) {
+                    itemBuilder: (context, index) {
                       final products = state.allProducts[index];
-                      return  AdminViewItem(products: products);
-                    }),
+                      return AdminViewItem(products: products);
+                    },
                   ),
           );
         } else if (state is Loading) {

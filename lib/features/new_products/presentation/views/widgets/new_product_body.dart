@@ -66,7 +66,7 @@ class _NewProductScreenViewBodyState extends State<NewProductScreenViewBody> {
                       text: "أضافة صنف جديد",
                       fontFamily: AssetDate.messiriFont,
                       fontWeight: FontWeight.bold,
-                      fontSize: 48,
+                      fontSize: 36,
                     ),
                     CustomTextField(
                         hint: "اسم الصنف",
@@ -97,7 +97,6 @@ class _NewProductScreenViewBodyState extends State<NewProductScreenViewBody> {
                           TitleTexts(
                             text: "السعر",
                             fontFamily: AssetDate.messiriFont,
-                            fontSize: 24,
                           ),
                         ],
                       ),
@@ -208,7 +207,6 @@ class _NewProductScreenViewBodyState extends State<NewProductScreenViewBody> {
                           Expanded(
                             flex: 1,
                             child: DropdownButton(
-                              alignment: Alignment.center,
                               style: const TextStyle(
                                   color: AppColors.blackColor,
                                   fontFamily: AssetDate.messiriFont),
@@ -270,7 +268,8 @@ class _NewProductScreenViewBodyState extends State<NewProductScreenViewBody> {
                                     child: CustomButton(
                                       onPress: () async {
                                         if (formKey.currentState!.validate()) {
-                                          final adminMail = FirebaseAuth.instance.currentUser!.email;
+                                          final adminMail = FirebaseAuth
+                                              .instance.currentUser!.email;
                                           final id = generateDocumentId();
                                           final product = ProductModel(
                                               name: productName.text,

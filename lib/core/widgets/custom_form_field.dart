@@ -39,7 +39,7 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       style: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 18,
+        fontSize: 14,
       ),
       onChanged: onChange,
       onSaved: onSaved,
@@ -53,13 +53,13 @@ class CustomTextField extends StatelessWidget {
         hintText: hint,
         hintStyle: TextStyle(
           fontFamily: fontFamily,
-          fontSize: 21,
+          fontSize: 14,
         ),
         labelText: label,
         suffix: suffix,
         labelStyle: TextStyle(
           fontFamily: fontFamily,
-          fontSize: 21,
+          fontSize: 14,
         ),
         prefixIcon: prefix,
         border: OutlineInputBorder(
